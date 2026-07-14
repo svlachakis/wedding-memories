@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Δημιουργία QR για το μενού</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 560px;
+      margin: 40px auto;
+      padding: 0 16px;
+      color: #3d3630;
+      background: #faf7f2;
+    }
+    h1 { font-size: 1.4rem; }
+    input {
+      width: 100%;
+      padding: 12px;
+      font: inherit;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 12px;
+      padding: 12px 24px;
+      font: inherit;
+      font-weight: 600;
+      border: none;
+      border-radius: 999px;
+      background: #b08d57;
+      color: #fff;
+      cursor: pointer;
+    }
+    #out { margin-top: 24px; text-align: center; }
+    #out svg { width: 280px; height: 280px; background: #fff; padding: 16px; border-radius: 12px; }
+    .dl { display: inline-block; margin: 16px 8px 0; }
+    p.note { color: #8a8178; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <h1>QR κωδικός για το μενού του γάμου</h1>
+  <p>Βάλε το τελικό URL της σελίδας (π.χ. το GitHub Pages link) και κατέβασε το QR σε SVG — ιδανικό για εκτύπωση σε οποιοδήποτε μέγεθος χωρίς απώλεια ποιότητας.</p>
+  <input id="url" type="url" placeholder="https://stavrosvl7.github.io/wedding-memories/" />
+  <button id="make">Δημιουργία QR</button>
+  <div id="out"></div>
+  <p class="note">Συμβουλή: τύπωσε το QR τουλάχιστον 2×2 εκ. στο μενού και δοκίμασέ το με 2–3 διαφορετικά κινητά πριν πάει στο τυπογραφείο.</p>
+
+  <script src="vendor/qrcode.js"></script>
+  <script>
+    document.getElementById("make").addEventListener("click", function () {
+      const url = document.getElementById("url").value.trim();
+      const out = document.getElementById("out");
+      out.textContent = "";
+      if (!url) { out.textContent = "Βάλε πρώτα ένα URL."; return; }
+
+      // errorCorrectionLevel 'H' = 30% ανοχή σε φθορά/λέκιασμα εκτύπωσης
+      const qr = qrcode(0, "H");
+      qr.addData(url);
+      qr.make();
+
+      const holder = document.createElement("div");
+      holder.innerHTML = qr.createSvgTag({ cellSize: 8, margin: 4 }); // έξοδος βιβλιοθήκης, όχι είσοδος χρήστη
+      const svgEl = holder.querySelector("svg");
+      svgEl.removeAttribute("width");
+      svgEl.removeAttribute("height");
+      out.appendChild(holder);
+
+      const svgStr = holder.innerHTML;
+      const svgLink = document.createElement("a");
+      svgLink.className = "dl";
+      svgLink.textContent = "⬇ Κατέβασμα SVG (για εκτύπωση)";
+      svgLink.href = URL.createObjectURL(new Blob([svgStr], { type: "image/svg+xml" }));
+      svgLink.download = "wedding-qr.svg";
+      out.appendChild(svgLink);
+
+      // PNG μέσω canvas για όσους προτιμούν εικόνα
+      const pngLink = document.createElement("a");
+      pngLink.className = "dl";
+      pngLink.textContent = "⬇ Κατέβασμα PNG (1200px)";
+      pngLink.href = "#";
+      pngLink.addEventListener("click", function (e) {
+        e.preventDefault();
+        const size = 1200;
+        const canvas = document.createElement("canvas");
+        canvas.width = size; canvas.height = size;
+        const ctx = canvas.getContext("2d");
+        const img = new Image();
+        const svgBlob = new Blob([svgStr], { type: "image/svg+xml;charset=utf-8" });
+        const objUrl = URL.createObjectURL(svgBlob);
+        img.onload = function () {
+          ctx.fillStyle = "#fff";
+          ctx.fillRect(0, 0, size, size);
+          ctx.drawImage(img, 0, 0, size, size);
+          URL.revokeObjectURL(objUrl);
+          const a = document.createElement("a");
+          a.href = canvas.toDataURL("image/png");
+          a.download = "wedding-qr.png";
+          a.click();
+        };
+        img.src = objUrl;
+      });
+      out.appendChild(pngLink);
+    });
+  </script>
+</body>
+</html>

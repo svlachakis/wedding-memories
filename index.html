@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#faf7f2" />
+  <title>Οι αναμνήσεις μας</title>
+  <meta name="description" content="Μοιραστείτε φωτογραφίες, βίντεο και ηχητικές ευχές από τον γάμο μας!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+    <header class="hero">
+      <div class="ornament">❦</div>
+      <h1 id="couple-names">Όνομα &amp; Όνομα</h1>
+      <p class="date" id="wedding-date"></p>
+      <p class="tagline">Μοιραστείτε μαζί μας τις στιγμές που ζήσατε απόψε 🤍</p>
+    </header>
+
+    <section class="guest-info">
+      <label for="guest-name">Το όνομά σας <span class="optional">(προαιρετικό)</span></label>
+      <input type="text" id="guest-name" placeholder="π.χ. Θεία Μαρία" autocomplete="name" maxlength="60" />
+    </section>
+
+    <section class="actions">
+      <label class="action-btn" for="file-input">
+        <span class="icon">📸</span>
+        <span class="label">Φωτογραφίες &amp; Βίντεο</span>
+        <span class="hint">Επιλέξτε από τη συλλογή ή τραβήξτε τώρα</span>
+      </label>
+      <input type="file" id="file-input" accept="image/*,video/*" multiple hidden />
+
+      <button class="action-btn" id="record-btn" type="button">
+        <span class="icon">🎙️</span>
+        <span class="label" id="record-label">Ηχητική ευχή</span>
+        <span class="hint" id="record-hint">Πατήστε για να ηχογραφήσετε το μήνυμά σας</span>
+      </button>
+    </section>
+
+    <section class="recorder" id="recorder" hidden>
+      <div class="rec-indicator"><span class="rec-dot"></span> <span id="rec-timer">0:00</span></div>
+      <div class="rec-controls">
+        <button id="rec-stop" type="button" class="pill pill-primary">■ Ολοκλήρωση</button>
+        <button id="rec-cancel" type="button" class="pill">Ακύρωση</button>
+      </div>
+    </section>
+
+    <section class="preview" id="preview" hidden>
+      <audio id="preview-audio" controls></audio>
+      <div class="rec-controls">
+        <button id="preview-send" type="button" class="pill pill-primary">Αποστολή ευχής 💌</button>
+        <button id="preview-discard" type="button" class="pill">Διαγραφή</button>
+      </div>
+    </section>
+
+    <section class="uploads" id="uploads"></section>
+
+    <footer>
+      <p>Ό,τι ανεβάζετε το βλέπει μόνο το ζευγάρι. Ευχαριστούμε! 🥂</p>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
