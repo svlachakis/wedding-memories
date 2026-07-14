@@ -2,10 +2,10 @@
 // Συμπλήρωσε τα στοιχεία του Cloudinary λογαριασμού σου (δες README.md, βήμα 1).
 const CONFIG = {
   // Το "Cloud name" από το Cloudinary Dashboard (π.χ. "dabc123xy")
-  cloudinaryCloudName: "YOUR_CLOUD_NAME",
+  cloudinaryCloudName: "njlhz54b",
 
   // Το όνομα του unsigned upload preset (π.χ. "wedding_unsigned")
-  cloudinaryUploadPreset: "YOUR_UPLOAD_PRESET",
+  cloudinaryUploadPreset: "wedding_unsigned",
 
   // Στοιχεία γάμου — εμφανίζονται στη σελίδα
   coupleNames: "Όνομα & Όνομα",
