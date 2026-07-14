@@ -8,8 +8,8 @@ const CONFIG = {
   cloudinaryUploadPreset: "wedding_unsigned",
 
   // Στοιχεία γάμου — εμφανίζονται στη σελίδα
-  coupleNames: "Όνομα & Όνομα",
-  weddingDate: "2026-09-19",
+  coupleNames: "Stavros & Ioanna",
+  weddingDate: "2026-10-03",
 
   // Μέγιστο μέγεθος αρχείου σε MB (το δωρεάν Cloudinary δέχεται έως 100MB video)
   maxFileSizeMB: 100,
