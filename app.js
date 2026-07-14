@@ -3,6 +3,10 @@
 
   // ─── Αρχικοποίηση σελίδας ─────────────────────────────────────────────────
   document.getElementById("couple-names").textContent = CONFIG.coupleNames;
+  if (CONFIG.childName) {
+    document.getElementById("child-name").textContent = CONFIG.childName;
+    document.getElementById("christening").hidden = false;
+  }
   const dateEl = document.getElementById("wedding-date");
   if (CONFIG.weddingDate) {
     dateEl.textContent = new Date(CONFIG.weddingDate).toLocaleDateString("el-GR", {

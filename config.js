@@ -7,8 +7,10 @@ const CONFIG = {
   // Το όνομα του unsigned upload preset (π.χ. "wedding_unsigned")
   cloudinaryUploadPreset: "wedding_unsigned",
 
-  // Στοιχεία γάμου — εμφανίζονται στη σελίδα
+  // Στοιχεία γάμου/βάφτισης — εμφανίζονται στη σελίδα
   coupleNames: "Stavros & Ioanna",
+  // Όνομα παιδιού για τη βάφτιση (άφησέ το κενό "" αν δεν υπάρχει)
+  childName: "George",
   weddingDate: "2026-10-03",
 
   // Μέγιστο μέγεθος αρχείου σε MB (το δωρεάν Cloudinary δέχεται έως 100MB video)
