@@ -8,7 +8,7 @@ const CONFIG = {
   cloudinaryUploadPreset: "wedding_unsigned",
 
   // Στοιχεία γάμου/βάφτισης — εμφανίζονται στη σελίδα
-  coupleNames: "Stavros – Ioanna",
+  coupleNames: "Stavros & Ioanna",
   // Όνομα παιδιού για τη βάφτιση (άφησέ το κενό "" αν δεν υπάρχει)
   childName: "George",
   weddingDate: "2026-10-03",
