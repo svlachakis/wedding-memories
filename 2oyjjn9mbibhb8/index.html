@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#fbf7f5" />
+  <meta name="theme-color" content="#f6f6f8" />
   <meta name="robots" content="noindex, nofollow, noarchive" />
   <meta name="referrer" content="no-referrer" />
   <title>Ένα μικρό γράμμα από μια μικρή καρδούλα ❤️</title>
@@ -16,16 +16,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #fbf7f5;
+      --bg: #f6f6f8;
       --paper: #ffffff;
-      --ink: #3a3438;
-      --muted: #9b9097;
-      --blush: #e7b8b8;
-      --blush-deep: #c98d92;
+      --ink: #2c2d33;
+      --muted: #9a9ba3;
+      --blush: #c9ccd3;
+      --blush-deep: #7e828c;
       --silver: #b9bcc4;
-      --line: #f0e6e4;
-      --shadow: 0 24px 60px rgba(120, 80, 90, 0.10);
-      --metal-text: linear-gradient(135deg, #b9858b 0%, #e2b9bb 40%, #c1949a 60%, #edd0cf 100%);
+      --line: #e9e9ee;
+      --shadow: 0 24px 60px rgba(44, 45, 51, 0.09);
+      --metal-text: linear-gradient(135deg, #6f737c 0%, #b7bbc3 40%, #82868f 60%, #c9cdd4 100%);
     }
 
     * { box-sizing: border-box; }
@@ -37,8 +37,8 @@
       color: var(--ink);
       background:
         radial-gradient(90% 60% at 50% -5%, #ffffff 0%, rgba(255, 255, 255, 0) 70%),
-        radial-gradient(60% 50% at 100% 100%, #f7e4e2 0%, rgba(247, 228, 226, 0) 70%),
-        radial-gradient(60% 50% at 0% 80%, #f1eef4 0%, rgba(241, 238, 244, 0) 70%),
+        radial-gradient(60% 50% at 100% 100%, #eceef2 0%, rgba(236, 238, 242, 0) 70%),
+        radial-gradient(60% 50% at 0% 80%, #f0f1f4 0%, rgba(240, 241, 244, 0) 70%),
         var(--bg);
       background-attachment: fixed;
       min-height: 100vh;
@@ -99,8 +99,8 @@
       display: grid;
       place-items: center;
       font-size: 28px;
-      background: radial-gradient(circle at 35% 30%, #f6dcdc 0%, #e7b8b8 55%, #cf979b 100%);
-      box-shadow: 0 8px 22px rgba(201, 141, 146, 0.35), inset 0 -3px 6px rgba(0, 0, 0, 0.08);
+      background: radial-gradient(circle at 35% 30%, #ffffff 0%, #dfe1e6 50%, #a9adb6 100%);
+      box-shadow: 0 8px 22px rgba(126, 130, 140, 0.30), inset 0 -3px 6px rgba(0, 0, 0, 0.08);
       animation: beat 2.4s ease-in-out infinite;
     }
 
@@ -139,7 +139,7 @@
       content: "";
       flex: 1;
       height: 1px;
-      background: linear-gradient(90deg, rgba(201, 141, 146, 0), var(--blush-deep), rgba(201, 141, 146, 0));
+      background: linear-gradient(90deg, rgba(126, 130, 140, 0), var(--silver), rgba(126, 130, 140, 0));
     }
 
     .greeting {
@@ -232,9 +232,9 @@
   <div class="hearts" aria-hidden="true" id="hearts"></div>
 
   <main class="letter">
-    <div class="seal" aria-hidden="true">💌</div>
+    <div class="seal" aria-hidden="true">🤍</div>
     <h1>Ένα μικρό γράμμα από μια μικρή καρδούλα… ❤️</h1>
-    <div class="divider" aria-hidden="true">❤</div>
+    <div class="divider" aria-hidden="true">❦</div>
 
     <p class="greeting reveal">Γεια σας αγαπημένοι μου…</p>
 
@@ -276,7 +276,7 @@
 
       if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       var box = document.getElementById("hearts");
-      var glyphs = ["❤", "♡", "❤"];
+      var glyphs = ["♡", "✦", "♡"];
       for (var i = 0; i < 14; i++) {
         var s = document.createElement("span");
         s.textContent = glyphs[i % glyphs.length];
